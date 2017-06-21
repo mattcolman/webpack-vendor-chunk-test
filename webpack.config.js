@@ -32,6 +32,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+      FSG_BUILD: {
         TIME_STAMP: Date.now(),
       },
     }),
@@ -40,8 +42,7 @@ module.exports = {
       minChunks(module, count) {
         var context = module.context;
         return context &&
-          context.indexOf('node_modules') >= 0 &&
-          context.indexOf('node_modules/debug') === -1;
+          context.indexOf('node_modules') >= 0
       },
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'manifest' }),
@@ -51,6 +52,7 @@ module.exports = {
       compress: {
         warnings: false,
       },
+      beautify: true,
     }),
   ] : [
     new webpack.NamedModulesPlugin(),
