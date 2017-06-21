@@ -7,7 +7,7 @@
   "scripts": {
     "start": "NODE_ENV=development && node devServer.js",
     "build": "NODE_ENV=production webpack",
-    "analyzeBundle": "NODE_ENV=development webpack --config webpack.config.analyzeBundle.js"
+    "analyzeBundle": "NODE_ENV=production webpack --config webpack.config.analyzeBundle.js"
   },
   "license": "ISC",
   "dependencies": {
